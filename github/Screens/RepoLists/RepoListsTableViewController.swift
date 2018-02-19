@@ -12,6 +12,7 @@ import Alamofire
 class RepoListsTableViewController: UITableViewController {
     
     var repos: [Repo] = []
+    private var repoSegue = "repo"
     private var getRepoData = GetRepo()
 
     override func viewDidLoad() {
@@ -19,6 +20,7 @@ class RepoListsTableViewController: UITableViewController {
                 
         
         setup()
+        title = "GitHub"
     }
     
     // MARK: - Table view data source
@@ -38,6 +40,21 @@ class RepoListsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: repoSegue, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == repoSegue {
+            if let indexPath = tableView.indexPathForSelectedRow?.row {
+                let dvc = segue.destination as? RepoWebView
+                dvc?.url = URL(string: self.repos[indexPath].repoUrl)
+                dvc?.repoName = self.repos[indexPath].name
+            }
+        }
+    }
 }
 
 // MARK: - Setup 🔨
@@ -45,6 +62,7 @@ private extension RepoListsTableViewController {
     func setup() {
         tableViewInit()
         getReposData()
+        regreshControl()
     }
     
     func tableViewInit() {
@@ -67,6 +85,10 @@ private extension RepoListsTableViewController {
     func regreshControl() {
         let control = UIRefreshControl()
         tableView.refreshControl = control
-        control.addTarget(self, action: #selector(getReposData), for: .valueChanged)
+        control.addTarget(self, action: #selector(updateData), for: .valueChanged)
+    }
+    
+    @objc func updateData() {
+        getReposData()
     }
 }

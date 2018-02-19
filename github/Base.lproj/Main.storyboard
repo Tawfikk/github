@@ -27,7 +27,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vOI-B4-t5E" kind="show" id="07d-HS-10s"/>
+                                    <segue destination="vOI-B4-t5E" kind="show" identifier="repo" id="07d-HS-10s"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -42,16 +42,18 @@
             </objects>
             <point key="canvasLocation" x="404" y="106.59670164917542"/>
         </scene>
-        <!--View Controller-->
+        <!--Repo Web View-->
         <scene sceneID="FDc-Gg-WEa">
             <objects>
-                <viewController id="vOI-B4-t5E" sceneMemberID="viewController">
+                <viewController id="vOI-B4-t5E" customClass="RepoWebView" customModule="github" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TsL-DW-kNA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wcy-gV-TSy"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REM-Ez-Waa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
