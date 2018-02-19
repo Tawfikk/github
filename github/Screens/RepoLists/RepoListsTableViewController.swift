@@ -7,23 +7,24 @@
 //
 
 import UIKit
+import Alamofire
 
 class RepoListsTableViewController: UITableViewController {
     
     var repos: [Repo] = []
+    private var getRepoData = GetRepo()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+                
         
         setup()
     }
     
-
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repos.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RepoTableViewCell.identifier, for: indexPath) as! RepoTableViewCell
@@ -37,13 +38,13 @@ class RepoListsTableViewController: UITableViewController {
 
         return cell
     }
-
 }
 
 // MARK: - Setup 🔨
 private extension RepoListsTableViewController {
     func setup() {
         tableViewInit()
+        getReposData()
     }
     
     func tableViewInit() {
@@ -52,5 +53,20 @@ private extension RepoListsTableViewController {
         
         tableView.register(RepoTableViewCell.nib, forCellReuseIdentifier: RepoTableViewCell.identifier)
     }
-  
+    
+    @objc func getReposData() {
+        getRepoData.getRepo(url: GetRepo.basicURL) { (repo) in
+            self.repos = repo
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
+            }
+        }
+    }
+    
+    func regreshControl() {
+        let control = UIRefreshControl()
+        tableView.refreshControl = control
+        control.addTarget(self, action: #selector(getReposData), for: .valueChanged)
+    }
 }

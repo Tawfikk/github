@@ -67,9 +67,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="authorLabel" destination="8L3-MX-PVA" id="3Dm-sX-BJJ"/>
                 <outlet property="descriptionLabel" destination="p0W-N3-BH2" id="5Xl-nv-UFy"/>
                 <outlet property="idLabel" destination="RN2-Tx-yLl" id="ycU-qi-3iq"/>
-                <outlet property="loginLabel" destination="8L3-MX-PVA" id="xn6-9F-jHU"/>
                 <outlet property="repoNameLabel" destination="hnz-3q-Ybi" id="v3P-5C-F7A"/>
             </connections>
             <point key="canvasLocation" x="-1.5" y="62"/>

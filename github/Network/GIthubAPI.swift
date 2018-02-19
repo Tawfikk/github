@@ -10,9 +10,10 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-struct GithubAPI {
+final class GithubAPI {
     
-    var basicURL: String = "https://api.github.com/repositories"
+    private init() {}
+    static let shared = GithubAPI()        
     
     func requestJSON(for url: URLConvertible, method: HTTPMethod, completionBlock: @escaping (JSON?, Error?) -> Void) {
         Alamofire.request(url, method: .get, encoding: JSONEncoding.default)
@@ -25,10 +26,5 @@ struct GithubAPI {
                     completionBlock(nil, error)
                 }
         }
-    }    
+    }
 }
-
-
-
-
-

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D58D163203B4BAB00DFE53A /* GetRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58D162203B4BAB00DFE53A /* GetRepo.swift */; };
+		5D58D166203B502B00DFE53A /* RepoWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58D165203B502B00DFE53A /* RepoWebView.swift */; };
 		5D94FEF8203B04D700CDFB55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D94FEF7203B04D700CDFB55 /* AppDelegate.swift */; };
 		5D94FEFD203B04D700CDFB55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D94FEFB203B04D700CDFB55 /* Main.storyboard */; };
 		5D94FEFF203B04D700CDFB55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D94FEFE203B04D700CDFB55 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 		0C3A050272B73023BB508CB6 /* Pods_github.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_github.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EF7A47FA3B909703FF2307 /* Pods-github.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github.release.xcconfig"; path = "Pods/Target Support Files/Pods-github/Pods-github.release.xcconfig"; sourceTree = "<group>"; };
 		5D4300342D55003DE69FDC88 /* Pods-github.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github.debug.xcconfig"; path = "Pods/Target Support Files/Pods-github/Pods-github.debug.xcconfig"; sourceTree = "<group>"; };
+		5D58D162203B4BAB00DFE53A /* GetRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRepo.swift; sourceTree = "<group>"; };
+		5D58D165203B502B00DFE53A /* RepoWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWebView.swift; sourceTree = "<group>"; };
 		5D94FEF4203B04D700CDFB55 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D94FEF7203B04D700CDFB55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D94FEFC203B04D700CDFB55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +61,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D58D164203B4F3400DFE53A /* Detail Repo */ = {
+			isa = PBXGroup;
+			children = (
+				5D58D165203B502B00DFE53A /* RepoWebView.swift */,
+			);
+			path = "Detail Repo";
+			sourceTree = "<group>";
+		};
 		5D94FEEB203B04D700CDFB55 = {
 			isa = PBXGroup;
 			children = (
@@ -78,11 +90,11 @@
 		5D94FEF6203B04D700CDFB55 /* github */ = {
 			isa = PBXGroup;
 			children = (
+				5D94FEF7203B04D700CDFB55 /* AppDelegate.swift */,
 				5D94FF0B203B05A900CDFB55 /* Extensions */,
 				5D94FF0C203B05BF00CDFB55 /* Network */,
 				5D94FF09203B059D00CDFB55 /* Model */,
 				5D94FF0A203B05A400CDFB55 /* Screens */,
-				5D94FEF7203B04D700CDFB55 /* AppDelegate.swift */,
 				5D94FEFB203B04D700CDFB55 /* Main.storyboard */,
 				5D94FF0D203B05CC00CDFB55 /* Supporting Files */,
 			);
@@ -101,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				5D94FF10203B069600CDFB55 /* RepoLists */,
+				5D58D164203B4F3400DFE53A /* Detail Repo */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -150,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				5D94FF11203B06B200CDFB55 /* RepoListsTableViewController.swift */,
+				5DF8EA6A203B2DE700F31838 /* Network */,
 				5D94FF13203B06B600CDFB55 /* Views */,
 			);
 			path = RepoLists;
@@ -162,6 +176,14 @@
 				5D94FF15203B06D300CDFB55 /* RepoTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5DF8EA6A203B2DE700F31838 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5D58D162203B4BAB00DFE53A /* GetRepo.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		DB5D7593791D61DE7788F143 /* Frameworks */ = {
@@ -306,6 +328,8 @@
 			files = (
 				5D94FEF8203B04D700CDFB55 /* AppDelegate.swift in Sources */,
 				5D94FF1B203B0DA400CDFB55 /* GIthubAPI.swift in Sources */,
+				5D58D163203B4BAB00DFE53A /* GetRepo.swift in Sources */,
+				5D58D166203B502B00DFE53A /* RepoWebView.swift in Sources */,
 				5D94FF12203B06B200CDFB55 /* RepoListsTableViewController.swift in Sources */,
 				5D94FF16203B06D300CDFB55 /* RepoTableViewCell.swift in Sources */,
 				5D94FF19203B06FA00CDFB55 /* Repo.swift in Sources */,
