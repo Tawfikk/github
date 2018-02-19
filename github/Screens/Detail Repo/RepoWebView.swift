@@ -15,6 +15,10 @@ class RepoWebView: UIViewController, WKNavigationDelegate {
     var repoName: String? 
     var webView: WKWebView!    
     
+    // MARK: - Outlets 🔌
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    // MARK: - LifeCycle 🌍
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,8 +27,18 @@ class RepoWebView: UIViewController, WKNavigationDelegate {
         webView.load(request)
     }
     
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        print("Start")        
+    }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        title = repoName
+        title = repoName        
+        print("Finish")
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        spinner.stopAnimating()
     }
 }
 
@@ -37,7 +51,7 @@ private extension RepoWebView {
     func webViewInit() {
         view = webView
         webView = WKWebView()
-        webView.navigationDelegate = self
+        webView.navigationDelegate = self        
         webView.allowsBackForwardNavigationGestures = true
     }
     

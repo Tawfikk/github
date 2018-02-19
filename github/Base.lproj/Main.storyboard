@@ -49,11 +49,23 @@
                     <view key="view" contentMode="scaleToFill" id="TsL-DW-kNA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="thp-sp-Gtf">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="thp-sp-Gtf" firstAttribute="centerX" secondItem="TsL-DW-kNA" secondAttribute="centerX" id="6HI-kj-tX4"/>
+                            <constraint firstItem="thp-sp-Gtf" firstAttribute="centerY" secondItem="TsL-DW-kNA" secondAttribute="centerY" id="Bld-PJ-urT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wcy-gV-TSy"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="spinner" destination="thp-sp-Gtf" id="qAn-QT-XjI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REM-Ez-Waa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
