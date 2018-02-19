@@ -21,6 +21,8 @@ class RepoWebView: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
+        
         webView.navigationDelegate = self
         webView.allowsBackForwardNavigationGestures = true
         
@@ -42,6 +44,21 @@ class RepoWebView: UIViewController, WKNavigationDelegate {
 }
 
 // MARK: - Setup 🔨
-private extension RepoWebView {    
+private extension RepoWebView {
+    
+    func setup() {
+        shareButton()
+    }
+    
+    func shareButton() {
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(shareLink))
+        self.navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc func shareLink() {
+        guard let repoLink = url else { return }
+        let vc = UIActivityViewController(activityItems: [repoLink], applicationActivities: [])
+        present(vc, animated: true)
+    }
     
 }
