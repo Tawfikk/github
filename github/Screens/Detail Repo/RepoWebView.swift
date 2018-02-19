@@ -13,28 +13,27 @@ class RepoWebView: UIViewController, WKNavigationDelegate {
     
     var url: URL?
     var repoName: String? 
-    var webView: WKWebView!    
     
-    // MARK: - Outlets 🔌
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     // MARK: - LifeCycle 🌍
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
+        webView.navigationDelegate = self
+        webView.allowsBackForwardNavigationGestures = true
+        
         let request = URLRequest(url: url!)
         webView.load(request)
     }
     
-    
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Start")        
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        title = repoName        
-        print("Finish")
+        title = repoName
+        spinner.stopAnimating()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -43,20 +42,6 @@ class RepoWebView: UIViewController, WKNavigationDelegate {
 }
 
 // MARK: - Setup 🔨
-private extension RepoWebView {
-    func setup() {
-        webViewInit()
-    }
-    
-    func webViewInit() {
-        view = webView
-        webView = WKWebView()
-        webView.navigationDelegate = self        
-        webView.allowsBackForwardNavigationGestures = true
-    }
-    
-    func addShareButton() {
-        
-    }
+private extension RepoWebView {    
     
 }
