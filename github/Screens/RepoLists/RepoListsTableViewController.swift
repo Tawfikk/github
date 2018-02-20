@@ -74,7 +74,7 @@ private extension RepoListsTableViewController {
     }
     
     @objc func getReposData() {
-        getRepoData.getRepo(url: GetRepo.basicURL) { (repo) in
+        getRepoData.getRepo(url: GetRepo.basicURL) { [unowned self] repo in
             self.repos = repo
             DispatchQueue.main.async {
                 self.tableView.reloadData()
